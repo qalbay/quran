@@ -1,1 +1,195 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import "~@angular/material/theming";
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+
+@include mat-core();
+$primaryColor: (
+  50: #e0f5f8,
+  100: #b3e6ed,
+  200: #80d6e1,
+  300: #4dc5d4,
+  400: #26b8cb,
+  500: #00acc2,
+  600: #00a5bc,
+  700: #009bb4,
+  800: #0092ac,
+  900: #00829f,
+  A100: #c9f4ff,
+  A200: #96e9ff,
+  A400: #63deff,
+  A700: #4ad9ff,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$secondaryColor: (
+  50: #fdf3e6,
+  100: #f9e1c2,
+  200: #f6cd99,
+  300: #f2b970,
+  400: #efaa51,
+  500: #ec9b32,
+  600: #ea932d,
+  700: #e78926,
+  800: #e47f1f,
+  900: #df6d13,
+  A100: #ffffff,
+  A200: #ffe9da,
+  A400: #ffcba7,
+  A700: #ffbc8e,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #000000,
+    600: #000000,
+    700: #000000,
+    800: #000000,
+    900: #000000,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+$custom-typography: mat-typography-config(
+  $font-family: "f-regular",
+);
+
+$aklantic-primary: mat-palette($primaryColor);
+$aklantic-accent: mat-palette($secondaryColor);
+// The warn palette is optional (defaults to red).
+$aklantic-warn: mat-palette($mat-red);
+// Create the theme object (a Sass map containing all of the palettes).
+$aklantic-theme: mat-light-theme($aklantic-primary, $aklantic-accent, $aklantic-warn);
+@include angular-material-typography($custom-typography);
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($aklantic-theme);
+
 /* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "f-medium";
+  src: url("../src/assets/fonts/Gordita\ Medium.otf");
+}
+
+@font-face {
+  font-family: "f-regular";
+  src: url("../src/assets/fonts/Gordita\ Regular.otf");
+}
+
+@font-face {
+  font-family: "f-bold";
+  src: url("../src/assets/fonts/Gordita\ Bold.otf");
+}
+
+@font-face {
+  font-family: "f-arabic";
+  src: url("../src/assets/fonts/110_Besmellah\ Normal.ttf");
+}
+
+@font-face {
+  font-family: "f-indopak";
+  src: url("../src/assets/fonts/noorehira\ Regular.ttf");
+}
+
+html,
+body {
+  height: 100%;
+  font-family: "f-regular";
+  font-size: 15px;
+}
+body {
+  margin: 0;
+}
+
+.main {
+  background: whitesmoke;
+  min-height: 100vh;
+  padding: 30px;
+}
+
+.mat-ripple mat-tab-label mat-focus-indicator ng-star-inserted {
+  width: 50%;
+}
+
+.mat-tab-header-pagination {
+  display: none !important;
+}
+.mat-tab-label {
+  min-width: 50% !important;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar,
+.mat-tab-nav-bar.mat-primary .mat-ink-bar {
+  background-color: #00acc2;
+}
+
+.mat-tab-label.mat-tab-label-active {
+  color: #007888 !important;
+  background: #cdecf1 !important;
+}
+
+.mat-tab-header {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  flex-shrink: 0;
+  width: 210px !important;
+  margin: 0 auto !important;
+}
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: rgb(235, 235, 235);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(186, 186, 186);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(133, 133, 133);
+}
+
+.mat-tab-body-content {
+  height: 100%;
+  overflow: auto;
+  overflow-x: hidden !important;
+}
+
+.grey {
+  color: #71727e;
+}
+
+.font_chp_name {
+  font-family: "font_chp_name";
+}

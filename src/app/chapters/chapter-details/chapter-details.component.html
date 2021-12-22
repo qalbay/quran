@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="d-flex align-items-center justify-content-between mb-2">
+        <div class="d-flex align-items-center">
+            <button mat-icon-button routerLink="/chapters" class="me-2">
+                <span class="material-icons-outlined back_icon">
+                    arrow_back
+                </span>
+            </button>
+            <div>
+                Back to Chapters List
+            </div>
+        </div>
+        <div>
+            <mat-form-field appearance="fill">
+                <mat-label>Select Aayat</mat-label>
+                <mat-select (selectionChange)="selectedAyat($event.value)">
+                    <form class="position-relative m-2">
+                        <div class="search">
+                            <img src="../../../assets/search_icon.png" class="search-icon">
+                            <input type="text" class="form-control shadow-sm" placeholder="Search Ayat Number"
+                                (keyup)='search($event)'>
+                        </div>
+                    </form>
+                    <mat-option *ngFor="let number of verseNumber;let verse_number=index" [value]="number.verse">
+                        verse # {{number.verse}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-body">
+            <mat-tab-group>
+                <mat-tab label="Reading" class="p-2">
+                    <div class="section_reading">
+                        <div class="row py-4">
+                            <div class="col-lg-6 offset-lg-3 col-md-8 offset-md-2 col-sm-12">
+                                <div class="verse">
+                                    <div class="mb-3">
+                                        <span class="verse" *ngFor="let verse of versesFromJson;let verse_number=index">
+                                            <span class="mb-3" [ngClass]="{'selectedAyat': selectedVerse==verse.verse}"
+                                                id={{verse.verse}}>
+                                                {{verse.text}}
+                                                <span class="">﴿﻿{{verse_number+1}}﻿﴾</span>
+                                            </span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Translation" class="p-2">
+                    <div class="section_translation">
+                        <div class="row py-4">
+                            <div class="col-md-12">
+                                <div class="border-bottom p-3"
+                                    *ngFor="let verse of versesFromJson;let verse_number=index"
+                                    [ngClass]="{'selectedAyat': selectedVerse==verse.verse}">
+                                    <div class="mb-3 verse" #verseRef{{verse.verse}}>
+                                        {{verse.text}} <span class="verse-end-mark">﴿﻿{{verse_number+1}}﻿﴾</span>
+                                    </div>
+                                    <div class="grey">Translation</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+            <div class="d-flex align-items-center justify-content-between">
+                <button mat-button color="primary" [disabled]="chapter_number<=1" (click)="previousSurah()">
+                    <span class="material-icons-outlined">
+                        arrow_back_ios
+                    </span>
+                    Previous Surah
+                </button>
+                <button mat-button color="primary" [disabled]="chapter_number>=114" (click)="nextSurah()">
+                    Next Surah
+                    <span class="material-icons-outlined">
+                        arrow_forward_ios
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </div>
+</div>

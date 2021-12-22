@@ -1,0 +1,63 @@
+<!-- <div class="container">
+    <div class="card">
+        <div class="card-body">
+            <mat-tab-group>
+                <mat-tab label="Surah">
+                    <div class="section_surah">
+                        <div class="row py-4">
+                            <div class="col-xl-4 col-md-6 mb-3" *ngFor="let chapter of chaptersList">
+                                <div class="card border chapter_card" (click)="showChapter(chapter.chapter_number)">
+                                    <div class="card-body">
+                                        <div class="d-flex align-items-center justify-content-between">
+                                            <div class="d-flex align-items-center">
+                                                <div class="card_number">{{chapter.chapter_number}}</div>
+                                                <div>
+                                                    <div class="chp_name_english">{{chapter.name_simple}}</div>
+                                                    <div class="name_meaning">{{chapter.translated_name.name}}</div>
+                                                </div>
+                                            </div>
+                                            <div class="chp_name_arabic">سورة {{chapter.name_arabic}} </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+                <mat-tab label="Duas">
+                    <div class="section_duas">
+                        <div class="d-flex align-items-center justify-content-center h-100">
+                            <div class="d-flex flex-column align-items-center">
+                                <span class="material-icons-outlined pending_icon">
+                                    pending
+                                </span>
+                                <div class="grey">Duas coming soon</div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+</div> -->
+
+<div class="section_surah">
+    <div class="row py-4">
+        <div class="col-xl-4 col-md-6 mb-3" *ngFor="let chapter of chaptersList">
+            <div class="card border chapter_card" (click)="showChapter(chapter.chapter_number)">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="card_number">{{chapter.chapter_number}}</div>
+                            <div>
+                                <div class="chp_name_english">{{chapter.name_simple}}</div>
+                                <div class="name_meaning">{{chapter.translated_name.name}}</div>
+                            </div>
+                        </div>
+                        <div class="chp_name_arabic">سورة {{chapter.name_arabic}} </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
